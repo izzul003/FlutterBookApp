@@ -16,7 +16,6 @@ class _BookListPageState extends State<BookListPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     bookProvider = Provider.of<BookProvider>(context, listen: false);
     bookProvider!.fetchBookApi();
@@ -31,7 +30,7 @@ class _BookListPageState extends State<BookListPage> {
       body: Consumer<BookProvider>(
         builder: (context, provider, child) => Container(
           child: bookProvider!.bookList == null ?
-          Center(child: CircularProgressIndicator())
+          const Center(child: CircularProgressIndicator())
           :
           ListView.builder(
               itemCount: bookProvider!.bookList!.books!.length,
